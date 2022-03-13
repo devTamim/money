@@ -1,14 +1,29 @@
 
 function expenses(inputField) {
-    const foodBtn = document.getElementById(inputField);
-    const food = parseFloat(foodBtn.value);
+    
+    clearError(inputField)
 
-    return food;
+    const input = document.getElementById(inputField).value;
+    
+    if(input == '') error(inputField,'Empty field');
+    if(isNaN(input)) error(inputField,'Not a number');
+    if(parseFloat(input) < 0) error(inputField,'Negative number');
 
+    
+    return parseFloat(input);
+    
+}
 
+const clearError = (id) => {
+    document.getElementById(id).classList.remove('is-invalid');
+    document.getElementById(id+'-error').innerText = '';
+}
 
-
-
+const error = (id,message) => {
+    document.getElementById(id).classList.add('is-invalid');
+    document.getElementById(id+'-error').innerText = message;
+    return false;
+    
 }
 
 document.getElementById('calculate').addEventListener('click', function () {
@@ -18,14 +33,22 @@ document.getElementById('calculate').addEventListener('click', function () {
     const clothevalue = expenses('clothe');
 
 
-    const totalValue = foodvalue + rentvalue + clothevalue;
+    let totalValue = foodvalue + rentvalue + clothevalue;
+    
+    totalValue = isNaN(totalValue) ? 0 : totalValue;
+   
+    
     const expenseBtn = document.getElementById('expense');
-    expenseBtn.innerHTML = totalValue;
-
+    
     const incomeValue = expenses('income');
     const balance = incomeValue - totalValue;
+    if(balance < 0){
+        alert('negative number')
+        return false;
+    }
     const balanceValue = document.getElementById('balance');
     balanceValue.innerHTML = balance;
+    expenseBtn.innerHTML = totalValue;
     // const remainingBalance = document.getElementById('remainingBalance');
     // remainingBalance.innerHTML = balance;
 

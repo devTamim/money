@@ -25,6 +25,9 @@
                 </div>
                 <div class="col-auto">
                   <input type="int" id="income" class="form-control" required>
+                  <small id="income-error" class="text-danger">
+
+                  </small>
                 </div>
     
               </div>
@@ -35,6 +38,9 @@
                   </div>
                   <div class="col-auto">
                     <input type="text" id="food" class="form-control" required>
+                    <small id="food-error" class="text-danger">
+
+                    </small>
                   </div>
       
                 </div>
@@ -44,6 +50,9 @@
                   </div>
                   <div class="col-auto">
                     <input type="text" id="rent" class="form-control" required>
+                    <small id="rent-error" class="text-danger">
+
+                    </small>
                   </div>
       
                 </div>
@@ -53,11 +62,14 @@
                   </div>
                   <div class="col-auto">
                     <input type="text" id="clothe" class="form-control" required>
+                    <small id="clothe-error" class="text-danger">
+
+                    </small>
                   </div>
       
                 </div>
                 <div class="d-flex justify-content-center">
-                    <button type="submit" id="calculate" class=" btn btn-primary">Calculate</button>
+                    <button type="button" id="calculate" class=" btn btn-primary">Calculate</button>
                 </div>
                 <p class="text-center fw-bold mt-3">Total Expenses : <span id="expense">0</span></p>
                 <p class="text-center fw-bold mt-3">Balace : <span id="balance">0</span></p>
@@ -73,7 +85,7 @@
                         <label for="clothe" class="col-form-label">% </label>
                       </div>
                       <div class="col-md-2">
-                        <button id="savinng" class=" btn btn-primary px-5">save</button>
+                        <button id="savinng" type="button" class=" btn btn-primary px-5">save</button>
                       </div>
         
                   </div>
